@@ -6,11 +6,16 @@
 
 module bindbc.sdl.bind.sdlthread;
 
-import core.stdc.config : c_ulong;
 import bindbc.sdl.config;
 
+version(WebAssembly) {
+    alias SDL_threadID = uint;// Currently bindbc.sdl.config doesn't define types for WebAssembly
+}
+else {
+    import core.stdc.config : c_ulong;
+    alias SDL_threadID = c_ulong;
+}
 struct SDL_Thread;
-alias SDL_threadID = c_ulong;
 alias SDL_TLSID = uint;
 
 static if(sdlSupport >= SDLSupport.sdl209) {

@@ -6,9 +6,10 @@
 
 module bindbc.sdl.bind.sdlrwops;
 
-import core.stdc.stdio : FILE;
 import bindbc.sdl.config;
 import bindbc.sdl.bind.sdlstdinc : SDL_bool;
+
+struct FILE;
 
 enum : uint {
     SDL_RWOPS_UNKNOWN = 0,

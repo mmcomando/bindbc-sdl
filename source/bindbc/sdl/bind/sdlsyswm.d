@@ -6,7 +6,6 @@
 
 module bindbc.sdl.bind.sdlsyswm;
 
-import core.stdc.config : c_long;
 import bindbc.sdl.config;
 import bindbc.sdl.bind.sdlstdinc : SDL_bool;
 import bindbc.sdl.bind.sdlversion : SDL_version;
@@ -150,6 +149,7 @@ struct SDL_SysWMmsg {
         }
 
         version(Posix) {
+            import core.stdc.config : c_long;
             struct x11_ {
                 c_long[24] pad; // sufficient size for any X11 event
             }
